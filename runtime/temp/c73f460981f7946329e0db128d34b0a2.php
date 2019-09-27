@@ -1,0 +1,569 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:82:"E:\PHPTutorial\WWW\jjzs\jjzs\public/../application/admin\view\Order\tuiAction.html";i:1566892958;s:78:"E:\PHPTutorial\WWW\jjzs\jjzs\public/../application/admin\view\Public\base.html";i:1563256854;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理系统</title>
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="/static/admin/css/nifty.min.css" rel="stylesheet">
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="/static/admin/css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+ 	<link href="/static/admin/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="/static/admin/css/demo/nifty-demo.min.css" rel="stylesheet">
+    <link href="/static/admin/css/mypage.css" rel="stylesheet">
+    <!--Morris.js [ OPTIONAL ]-->
+    <link href="/static/admin/plugins/morris-js/morris.min.css" rel="stylesheet">
+    <!--Magic Checkbox [ OPTIONAL ]-->
+    <link href="/static/admin/plugins/magic-check/css/magic-check.min.css" rel="stylesheet">
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="/static/admin/plugins/pace/pace.min.css" rel="stylesheet">
+    <link href="/static/admin/plugins/fooTable/css/footable.core.css" rel="stylesheet">
+    <link href="/static/admin/plugins/pace/pace.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/static/webuploader/jekyll/css/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="/static/webuploader/jekyll/css/demo.css"
+    <script src="/static/admin/plugins/pace/pace.min.js"></script>
+    <script src="/static/admin/plugins/pace/pace.min.js"></script>
+    <!--jQuery [ REQUIRED ]-->
+    <script src="/static/admin/js/jquery-2.2.4.min.js"></script>
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="/static/admin/js/bootstrap.min.js"></script>
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="/static/admin/js/nifty.min.js"></script>
+    <script src="/static/admin/js/demo/nifty-demo.min.js"></script>
+    <!--Icons [ SAMPLE ]-->
+    <script src="/static/admin/js/demo/icons.js"></script>
+    <!--=================================================-->
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="/static/admin/js/demo/nifty-demo.min.js"></script>
+    <!--Morris.js [ OPTIONAL ]-->
+	<script src="/static/admin/plugins/morris-js/raphael-js/raphael.min.js"></script>
+    <!--Sparkline [ OPTIONAL ]-->
+    <script src="/static/admin/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Specify page [ SAMPLE ]-->
+    <script src="/static/admin/plugins/fooTable/dist/footable.all.min.js"></script>
+    <script src="/static/layui/layui.all.js"></script>
+    <!--FooTable Example [ SAMPLE ]-->
+    <script src="/static/admin/js/demo/tables-footable.js"></script>
+    <script type="text/javascript" src="/static/webuploader/jekyll/js/webuploader.js"></script>
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+        
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="javascript:;" class="navbar-brand">
+                        <img src="/static/admin/img/logo.png" alt="公司 Logo" title="公司LOGO" class="brand-icon">
+                        <div class="brand-title">
+                            <span class="brand-text">鼎智诚</span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+
+
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content clearfix">
+                    <ul class="nav navbar-top-links pull-left">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="/static/admin/#">
+                                <i class="demo-pli-view-list"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+
+        <div class="boxed">
+
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <div id="page-content">
+
+                
+<style>
+.s{width:420px;background:#ccc;text-align:center;display:none;position:absolute;}
+.s h4{height:50px;background:#3F3F3F;font:20px/50px "微软雅黑";color:#fff;}
+#modal{width:100%;height:100%;background:#000;opacity:0.3;z-index:5;position:fixed;top:0;left:0;display:none;}
+.ac{display:block;z-index:10;}
+.bc{display:none;}
+.srue{
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.srue-a{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+.cancel{
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.cancel-a{
+  width: 60px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+</style>
+<div class="panel">
+  <!-- Panel heading -->
+  <div class="panel-heading">
+
+    <h3 class="panel-title">详情</h3>
+
+  </div>
+  <div id="demo-custom-toolbar2" class="table-toolbar-left">
+        <a href="javascript:;" id="demo-dt-addrow-btn" class="btn btn-primary" onClick="javascript:history.back()">返回列表</a> 
+  </div>
+    <br/>
+    <br/>
+  <!-- Panel body -->
+  <form id="demo-bv-errorcnt" class="form-horizontal bv-form" action="" method="POST" novalidate="novalidate">
+    <input type="hidden" name="uid" value="<?php echo $info['userId']; ?>"/>
+    <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+    <div class="panel-body">
+      <div class="tab-content">
+        <!--SHOWING ERRORS IN TOOLTIP-->
+        <!--===================================================-->
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">订单号</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['orderNo']; ?>" placeholder="订单号" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">下单用户</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['nickName']; ?>" placeholder="下单用户" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">订单总金额</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['realTotalMoney']; ?>" placeholder="订单总金额" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">订单实际金额</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['realTotalMoney']; ?>" placeholder="订单实际金额" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">支付状态</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['isPay']==1?'已支付' : '未支付'; ?>" placeholder="支付状态" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">支付方式</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['payType']; ?>" placeholder="支付方式" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">下单时间</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo date('Y-m-d H:i:s',$info['createTime']); ?>" placeholder="下单时间" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">支付时间</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo date('Y-m-d H:i:s',$info['payTime']); ?>" placeholder="支付时间" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">订单备注</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderRemarks" value="<?php echo $info['orderRemarks']; ?>" placeholder="订单备注" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">送货方式</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['deliverType']==1?'商家配送' : '自取'; ?>" placeholder="送货方式" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <?php if($info['deliverType'] == 2): if($info['goodsData']): if(is_array($info['goodsData']) || $info['goodsData'] instanceof \think\Collection || $info['goodsData'] instanceof \think\Paginator): $i = 0; $__LIST__ = $info['goodsData'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+          <div class="form-group has-feedback">
+              <label style="" class="col-lg-3 control-label">商品<?php echo $i; ?>(数量)</label>
+              <div class="col-lg-4">
+                  <input type="text" style="" class="form-control" disabled  name="" value="<?php echo $item['goodsName']; ?>(<?php echo $item['goodsNum']; ?>)" placeholder="回桶品牌" data-bv-field="name" />
+
+                  <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+              </div>
+          </div>
+          <?php endforeach; endif; else: echo "" ;endif; endif; endif; if($info['deliverType'] == 1): ?>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">运费</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="orderNo" value="<?php echo $info['yunfei']; ?>" placeholder="送货方式" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">收货人姓名</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="userName" value="<?php echo $info['userName']; ?>" placeholder="昵称" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">收货人手机号</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="userMobile" value="<?php echo $info['userMobile']; ?>" placeholder="昵称" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">收货地址</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="userAddress" value="<?php echo $info['userAddress']; ?>" placeholder="昵称" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <?php endif; if($info['SuId']): ?>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">送水员姓名</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="userName" value="<?php echo $info['Sname']; ?>" placeholder="送水员姓名" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">送水员手机号</label>
+            <div class="col-lg-4">
+              <input type="text" class="form-control" disabled  name="userMobile" value="<?php echo $info['Smobile']; ?>" placeholder="送水员手机号" data-bv-field="name"/>
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <?php endif; if($info['orderGoodsType'] == 3): ?>
+          <div class="form-group has-feedback">
+            <label style="color:red;" class="col-lg-3 control-label">特别注意</label>
+            <div class="col-lg-4">
+              <input type="text" style="color:red;" class="form-control" disabled  name="userName" value="客户为<?php echo $info['shenfen']; ?>，未正常支付租金" placeholder="送水员姓名" data-bv-field="name" />
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <?php endif; if($info['orderTstatus'] == 2): ?>
+        <div class="form-group has-feedback">
+            <label class="col-lg-3 control-label">处理方式</label>
+            <div class="col-lg-4">
+              <?php if($info['orderTuiStatus'] == 1): ?>
+              <input type="text" class="form-control" disabled  name="userMobile" value="全额退款  共<?php echo $info['realTotalMoney']; ?>" placeholder="全额退款" data-bv-field="name"/>
+              <?php endif; if($info['orderTuiStatus'] == 2): ?>
+              <input type="text" class="form-control" disabled  name="userMobile" value="扣除运费退款 共<?php echo $info['realTotalMoney'] - $info['yunfei']; ?> 扣除运费 <?php echo $info['yunfei']; ?>" placeholder="送水员手机号" data-bv-field="name"/>
+              <?php endif; ?>
+
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+        </div>
+        <?php endif; if($info['orderTstatus'] == 1): if($info['orderStatus'] == 5): ?>
+            <div class="form-group has-feedback">
+              <label class="col-lg-3 control-label">取消原因</label>
+              <div class="col-lg-4">
+                <textarea name="" style="width:540px; height:140px;" ><?php echo $info['orderText']; ?></textarea>
+                <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+              </div>
+            </div>
+
+            <div class="panel-footer clearfix">
+              <div class="col-lg-7 col-lg-offset-3">
+                <button type="button" class="btn btn-mint subOrder" data-id="<?php echo $info['id']; ?>" data-type="1" >退全款</button>
+                <button type="button" class="btn btn-mint subOrder" data-id="<?php echo $info['id']; ?>" data-type="2" >扣除运费退款</button>
+              </div>
+            </div>
+          <?php endif; endif; if($info['deliverType'] == 2): if($info['orderStatus'] == 3): ?>
+
+                <div class="panel-footer clearfix">
+                <div class="col-lg-7 col-lg-offset-3">
+                  <button type="button" class="btn btn-mint completeOrderZiQu" data-id="<?php echo $info['id']; ?>" data-userId="<?php echo $info['userId']; ?>" data-type="1" >订单确认</button>
+                </div>
+              </div>
+          <?php endif; endif; ?>
+    
+       </div>
+    </div>
+
+  </form>
+</div>
+<script>  
+    $(function(){
+      $('.subOrder').click(function(){
+        var type =  $(this).attr('data-type');
+        var orderId  =  $(this).attr('data-id');
+        $.ajax({
+          type: 'POST',
+          url:'/Admin/orderTuiKuan',
+          data:{
+              orderId:orderId,
+              type:type,
+          },
+          success: function(data){
+              var data= eval('('+data+')');
+              if (data.code == 0) {
+                  layer.msg(data.meg, function(){
+                    //关闭后的操作
+                  });
+                  setTimeout(function(){
+                    window.location.href=document.referrer;
+                  },1500);
+              }else{
+                  layer.msg(data.meg, function(){
+                    //关闭后的操作
+                  });
+                  return false;
+              }
+          },
+        });
+      });
+
+      $('.completeOrderZiQu').click(function(){
+        var type     =  $(this).attr('data-type');
+        var orderId  =  $(this).attr('data-id');
+        var userId   =  $(this).attr('data-userId');
+        $.ajax({
+          type: 'POST',
+          url:'/Admin/completeOrderZiQu',
+          data:{
+              orderId:orderId,
+              userId:userId,
+          },
+          success: function(data){
+              var data= eval('('+data+')');
+              if (data.code == 0) {
+                  layer.msg(data.meg, function(){
+                    //关闭后的操作
+                  });
+                  setTimeout(function(){
+                    window.location.href=document.referrer;
+                  },1500);
+              }else{
+                  layer.msg(data.meg, function(){
+                    //关闭后的操作
+                  });
+                  return false;
+              }
+          },
+        });
+      });
+
+
+  });
+
+
+
+
+
+</script>
+
+
+                </div>
+                <footer id="footer">
+            <?php 
+                $time = time();
+             ?>
+            <div class="hide-fixed pull-right pad-rgt">
+                <strong><?php echo date('Y-m-d',$time); ?></strong>
+            </div>
+            <p class="pad-lft">&#0169; 技术支持-鼎智成科技发展有限公司</p>
+        </footer>
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+
+
+            
+            <!--ASIDE-->
+            <!--===================================================-->
+            <aside id="aside-container">
+                <div id="aside">
+                    <div class="nano">
+                        <div class="nano-content">
+                            
+                            <!--Nav tabs-->
+                            <!--================================-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active">
+                                    <a href="/Admin/#demo-asd-tab-1" data-toggle="tab">
+                                        <i class="demo-pli-speech-bubble-7"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/#demo-asd-tab-2" data-toggle="tab">
+                                        <i class="demo-pli-information icon-fw"></i> Report
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/Admin/#demo-asd-tab-3" data-toggle="tab">
+                                        <i class="demo-pli-wrench icon-fw"></i> Settings
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--================================-->
+                            <!--End nav tabs-->
+
+
+
+                            <!-- Tabs Content -->
+                            <!--================================-->
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--===================================================-->
+            <!--END ASIDE-->
+
+            
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <?php 
+                        $UserId = cookie('AdminUserId');
+                        $Db = new think\Db;
+                        $UserInfo = $Db::name('admin_users')->where("id=$UserId")->find();
+                        $role = rtrim($UserInfo['role'],',');
+                        $res = $Db::name('column')->where("id in($role)")->select();
+                        function GetTree($m,$name='child',$p_id = 0) {
+                            $arr = array();
+                            foreach ($m as $v) {
+                                if ($v['pid'] == $p_id) {
+                                    $v['child'] = GetTree($m, $name, $v['id']);
+                                    $arr[] = $v;
+                                }
+                            } 
+                            return $arr;
+                        }
+                        $column = GetTree($res,$name='child',$p_id = 0);
+                     ?>
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <!--================================-->
+                                <div id="mainnav-profile" class="mainnav-profile">
+                                    <div class="profile-wrap">
+                                        <div class="pad-btm">
+                                            <img class="img-circle img-sm img-border" src="/static/admin/img/profile-photos/1.png" title="管理员头像" alt="Profile Picture">
+                                        </div>
+                                        <a href="/Admin/#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                            <span class="pull-right dropdown-toggle">
+                                                <i class="dropdown-caret"></i>
+                                            </span>
+                                            <p class="mnp-name"><?php echo $UserInfo['nickname']; ?></p>
+                                        </a>
+                                    </div>
+                                    <div id="profile-nav" class="collapse list-group bg-trans">
+                                        <a href="/Admin/Administrator/password" class="list-group-item">
+                                            <i class="ion-ios-gear icon-lg icon-fw"></i> 修改密码
+                                        </a>
+                                        <a href="/Admin/Login/LoginOut" id="LoginOutNow" class="list-group-item">
+                                            <i class="demo-pli-unlock icon-lg icon-fw"></i> 退出
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul id="mainnav-menu" class="list-group">
+                                    <li class="active-link">
+                                        <a href="/Admin/Column">
+                                            <i class="demo-psi-home"></i>
+                                            <span class="menu-title">
+                                                <strong>栏目管理</strong>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <?php foreach($column as $val){ ?>
+                                    <!--Category name-->
+                                    <li class="list-header"><?php echo $val['name']; ?></li>
+                                    <!--Menu list item-->
+                                    <?php foreach($val['child'] as $cal){ ?>
+                                        <li>
+                                            <a href="<?php if($cal['url'] != ''){echo '';}?><?php echo $cal['url']; ?>">
+                                                <i class="<?php echo $cal['icon']; ?>"></i>
+                                                <span class="menu-title">
+                                                    <strong><?php echo $cal['name']; ?></strong>
+                                                </span>
+                                                <?php if(!empty($cal['child'])){ ?>
+                                                <i class="arrow"></i>
+                                                <?php } ?>
+                                            </a>
+                                            <!--Submenu-->
+                                            <?php foreach($cal['child'] as $eal){ ?>
+                                            <ul class="collapse">
+                                                <li><a href="<?php echo $eal['url']; ?>"><?php echo $eal['name']; ?></a></li>
+                                            </ul>
+                                            <?php } ?>
+                                        </li>
+                                    <?php } } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <button class="scroll-top btn">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+    </div>
+</body>
+</html>

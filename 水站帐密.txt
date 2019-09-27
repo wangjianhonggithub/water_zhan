@@ -1,0 +1,44 @@
+水站账密信息
+
+工作微信：15300012915
+微信密码：qweqwe123
+
+后台地址：https://ceshi.bjdingzhicheng.com/Admin/Login
+后台账号 ： admin
+密码：123456
+--------------------
+前台:https://ceshi.bjdingzhicheng.com/index/login/login.html
+账号：祝俊
+密码：123456
+--------------------
+测试 ftp ： 
+地址：ftp://116.255.187.224:21
+用户名：jijikeji_cn
+密码：jijikeji
+
+--------------------
+宝塔 linux：http://jijikeji.cn:8888
+账号：kaazkhrh
+密码：JHehZXPeDEEf
+
+--------------------
+测试 数据库 ： 
+ip:116.255.187.224    
+端口：3306      
+账号：ccc
+密码：ccc  
+--------------------
+shell：
+服务器IP地址: 116.255.187.224  
+初始用户名: root 
+初始密码: Jjsz123789   
+--------------------
+公众号：572178831@qq.com
+密码  ：zhujun1990520
+
+小程序：13521592886@163.com
+密码：  zhujun1990520
+
+桌面 微信开发者工具 自行登录。 
+微信公众平台 添加开发者权限， 然后对照文档，熟悉功能逻辑 ， 看 二期文档。
+/www/wwwroot/jijikeji.cn

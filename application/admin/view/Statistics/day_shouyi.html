@@ -1,0 +1,53 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">资金流水收益-日统计</h3>
+    </div>
+
+    <div id="demo-custom-toolbar2" class="table-toolbar-left" style="width:500px;margin-left: 25px">
+        <a href="/Admin/Statistics/capitalgains?type=1" class="btn btn-xs btn-rounded btn-success">日统计</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/Admin/Statistics/capitalgains?type=2" class="btn btn-xs btn-rounded btn-success">月统计</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/Admin/Statistics/capitalgains?type=3" class="btn btn-xs btn-rounded btn-success">年统计</a>
+
+    </div>
+
+
+    <div class="panel-body">
+        <table id="demo-dt-addrow" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th style="text-align: center">桶租金收益</th>
+                <th style="text-align: center">遗失水桶收益(数量)</th>
+                <th style="text-align: center">仓储费收益</th>
+                <th style="text-align: center">商品差价收益</th>
+                <th style="text-align: center">商品成本收益</th>
+                <th style="text-align: center">配送费收益</th>
+                <th style="text-align: center">日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="list" id="vo"}
+            <tr>
+                <td style="text-align: center">{$vo.rent_income}</td>
+                <td style="text-align: center">{$vo.lose_bucket*40}&nbsp;({$vo.lose_bucket})</td>
+                <td style="text-align: center">{$vo.cangchu}</td>
+                <td style="text-align: center">{$vo.goods_diff}</td>
+                <td style="text-align: center">{$vo.goods_cost}</td>
+                <td style="text-align: center">{$vo.yunfei}</td>
+                <td style="text-align: center">{$vo.statistical_time|date="Y-m-d",###}</td>
+
+            </tr>
+            {/volist}
+        </table>
+        <div>
+            <tr class="content">
+                <td colspan="3" bgcolor="#FFFFFF"><div class="pages">
+                    {$list->render()}
+                </div></td>
+            </tr>
+        </div>
+    </div>
+</div>
+
+{/block}

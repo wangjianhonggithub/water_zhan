@@ -1,0 +1,56 @@
+{extend name="Public:base" /}
+{block name="content"}
+<link rel="stylesheet" href="/static/home/song/css/order.css">
+<div class="tab">
+    <div class="all">
+        <div class="content">
+            <a href="javascript:;">
+                <span style="width: 100%;text-align: center; color: #666;">我的回桶</span>
+            </a>
+        </div>
+    </div>
+    <div class="big">
+        {volist name="list" id="vo"}
+        <div class="center active">
+            <div class="content">
+                <div class="item">
+                    <div class="item-title"><span>完成时间</span><span>{$vo.completeDate|date='Y-m-d H:i:s',###}</span></div>
+                    <div class="item-con">
+                        <div class="list"><span>订单号:</span><span>{$vo.qiantong_orderNo}</span><span></span></div>
+                        {volist name="vo.bucket" id = "vs"}
+                        <div class="list"><span>空桶品牌:</span><span>{$vs.bucket_name}</span><span><b>{$vs.bucket_num}</b>桶</span></div>
+                        {/volist}
+
+                    </div>
+
+                        {if($vo.waterman_owe_bucket == 0)}
+                        <div class="item-bot">
+
+                            <a href="javascript:;" class="complete">已回桶</a>
+
+                        </div>
+                        {else}
+                        <div class="item-bot">
+
+                            <a href="javascript:;">未回桶</a>
+
+                        </div>
+                        {/if}
+
+
+
+                        
+
+                </div>
+            </div>
+        </div>
+        {/volist}
+
+    </div>
+</div>
+<script src="/static/layui/layui.all.js"></script>
+<link rel="stylesheet" href="/static/layui/css/layui.css">   
+<script>
+
+</script>
+{/block}

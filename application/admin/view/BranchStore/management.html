@@ -1,0 +1,88 @@
+{extend name="Public:base" /}
+{block name="content"}
+<style>
+    .panel-a{
+        width: 100%;
+        /*height: 38px;*/
+        line-height: 38px;
+    }
+    .panel-a:hover{
+        width: 100%;
+        line-height: 38px;
+        display: block;
+        background: #dddddd;
+    }
+</style>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="/Admin/bucketStore">分店列表</a>>{$user_name}</h3>
+    </div>
+
+
+
+    <div class="panel-body">
+        <table id="demo-dt-addrow" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <div class="main" style="width: 225px;">
+                <div class="box" style="width: 100%;">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><p>分店信息</p></h4>
+                    <ul  style="display: none;padding-left: 35px">
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/edit?id={$id}"  class="panel-a">修改分店信息</a></li>
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/distribution?id={$id}&old_admin_id={$admin_id}"  class="panel-a">分配店长</a></li>
+                    </ul>
+                </div>
+                <div class="box" style="margin-top: 8px;width: 100%;">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><p>商品库存管理</p></h4>
+                    <ul style="display: none;padding-left: 35px">
+                        <li style="margin-top: 5px;"><a href="{:url('EmptyBucket/assignBucket',array('id'=>$id,'username'=>$user_name))}" class="panel-a">空桶库存</a></li>
+                        <li style="margin-top: 5px;"><a href="/Admin/StoreGoodsInfo?store_id={$id}" class="panel-a">商品库存</a></li>
+
+                    </ul>
+                </div>
+                <div class="box" style="margin-top: 8px;width: 100%;">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><p>订单管理表</p></h4>
+                    <ul style="display: none;padding-left: 35px">
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/storeOrder?store_id={$id}&store_name={$user_name}" class="panel-a">客户自取订单</a></li>
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/storeOrderTui?store_id={$id}&store_name={$user_name}" class="panel-a">退款订单</a></li>
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/storeOrderY?store_id={$id}&type=2&store_name={$user_name}"  class="panel-a">押桶记录</a></li>
+                        <li style="margin-top: 5px;"><a href="/Admin/Branch_store/storeOrderY?store_id={$id}&type=3&store_name={$user_name}"  class="panel-a">退桶记录</a></li>
+
+                    </ul>
+                </div>
+                <div class="box" style="margin-top: 8px;width: 100%;">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><a href="/Admin/Branch_store/storeuser?store_id={$id}&store_name={$user_name}" class="panel-a">送水员管理</a></h4>
+
+                </div>
+                <div class="box" style="margin-top: 8px">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><a href="/Admin/Branch_store/goodsSale?store_id={$id}&store_name={$user_name}" class="panel-a">品牌销售</a></h4>
+
+                </div>
+                <div class="box" style="margin-top: 8px">
+                    <h4 style="line-height: 38px;background: #eeeeee;padding-left: 4px;padding-left: 20px"><a href="/Admin/Branch_store/zhichu?store_id={$id}&store_name={$user_name}" class="panel-a">分店支出统计</a></h4>
+
+                </div>
+            </div>
+
+            </thead>
+            <tbody>
+
+        </table>
+        <div>
+            <tr class="content">
+                <td colspan="3" bgcolor="#FFFFFF"><div class="pages">
+
+                </div></td>
+            </tr>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("h4 p").click(function(){
+        // $(this).parent().parent().find("ul").toggle();//无动画显示隐藏
+        // $(this).parent().parent().find("ul").fadeToggle();// 透明度变化 淡入淡出
+        $(this).parent().parent().find("ul").slideToggle(); //有个上下滑动动画的展开收起效果 推荐
+    });
+</script>
+
+{/block}

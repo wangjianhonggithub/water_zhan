@@ -1,0 +1,72 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+  <div class="panel-heading">
+    <div class="panel-control">
+     
+    </div>
+    <h3 class="panel-title">添加</h3>
+  </div>
+  <div id="demo-custom-toolbar2" class="table-toolbar-left">
+        <a href="javascript:;" id="demo-dt-addrow-btn" class="btn btn-primary" onClick="javascript:history.back()">返回列表</a> 
+  </div>
+  <br/>
+  <br/>
+  <form id="demo-bv-errorcnt" class="form-horizontal bv-form" action="" method="POST" novalidate="novalidate">
+      <input type="hidden" name="name" value="{$name}" />
+      <input type="hidden" name="user_id" value="{$user_id}" />
+    <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+    <div class="panel-body">
+      <div class="tab-content">
+        <div id="demo-tabs-box-1" class="tab-pane fade in active">
+          <div class="form-group has-feedback">
+              <label class="col-lg-3 control-label">{$name}</label>
+            <div class="col-lg-7">
+                <input type="text" class="form-control" name="num" placeholder="分配总数" value="0">
+              <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+            </div>
+          </div>
+        </div>
+       </div>
+    </div>
+    <div class="panel-footer clearfix">
+      <div class="col-lg-7 col-lg-offset-3">
+        <button type="button" class="btn btn-mint" id="CreateSubmit" value="点击创建">点击创建</button></div>
+    </div>
+  </form>
+</div>
+<script>
+  $(function(){
+      $('#CreateSubmit').click(function(){
+        var url = "{:url('EmptyBucket/doAddBucket')}";
+        var name = $('input[name=name]').val();
+        var user_id = $('input[name=user_id]').val();
+        var num = $('input[name=num]').val();
+        if(num.length < 1){
+            layer.msg('数量不能为空');
+        }
+        $.ajax({
+          type: 'POST',
+          url:url,
+          data:{name:name,user_id:user_id,num:num},
+          success: function(data){
+              var data= eval('('+data+')');
+              if (data.code == 200) {
+                  layer.msg(data.msg, function(){
+                    //关闭后的操作
+                  });
+                  setTimeout(function(){
+                    window.location.href=document.referrer;
+                  },1500);
+              }else{
+                  layer.msg(data.msg, function(){
+                    //关闭后的操作
+                  });
+                  return false;
+              }
+          },
+        });
+      })
+  });
+</script>
+{/block}

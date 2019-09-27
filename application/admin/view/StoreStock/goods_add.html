@@ -1,0 +1,114 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+    <!-- Panel heading -->
+    <div class="panel-heading">
+        <div class="panel-control">
+
+        </div>
+        <h3 class="panel-title">添加新产品到仓库</h3>
+    </div>
+    <div id="demo-custom-toolbar2" class="table-toolbar-left">
+        <a href="javascript:;" id="demo-dt-addrow-btn" class="btn btn-primary" onClick="javascript:history.back()">返回列表</a>
+    </div>
+    <br/>
+    <br/>
+    <!-- Panel body -->
+    <form id="demo-bv-errorcnt" class="form-horizontal bv-form" action="" method="POST" novalidate="novalidate">
+        <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div id="demo-tabs-box-1" class="tab-pane fade in active">
+                    <div class="form-group has-feedback">
+                        <label class="col-lg-3 control-label">品牌</label>
+                        <div class="col-lg-4">
+                            <input type="hidden" value="{$rs.id}"  id="goodsId">
+                            <input type="hidden" value="{$rs.goods_name}"  id="goodsName">
+                            <input type="text" disabled="" class="form-control" name="goodsId" placeholder="{$rs.goods_name}" data-bv-field="name">
+                            <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="demo-tabs-box-1" class="tab-pane fade in active">
+                    <div class="form-group has-feedback">
+                        <label class="col-lg-3 control-label">单个成本</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="money" name="money" placeholder="每个成本价格" data-bv-field="name">
+                            <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="demo-tabs-box-1" class="tab-pane fade in active">
+                    <div class="form-group has-feedback">
+                        <label class="col-lg-3 control-label">库存</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="num" name="num" placeholder="增加库存的数量" data-bv-field="name">
+                            <i class="form-control-feedback" data-bv-icon-for="name" style="display: none;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group pad-ver">
+                <label class="col-md-3 control-label">供应商选择</label>
+                <div class="col-md-9">
+                    <div class="checkbox">
+                        <div class="col-lg-7">
+                            {volist name="supplier" id="vo"}
+                            <li style="list-style-type:none"><input name="supplier"  value="{$vo.id}" type="radio" ><span>{$vo.supplier_name}</span></li>
+                            {/volist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="col-lg-7 col-lg-offset-3">
+                <button type="button" class="btn btn-mint" id="CreateSubmit" value="点击修改">点击添加</button></div>
+        </div>
+    </form>
+</div>
+<script>
+    //修改库存
+    $(function(){
+        $('#CreateSubmit').click(function(){
+            var money = $("#money").val()*1;
+            var stock = $("#num").val()*1;
+            var goodsId = $("#goodsId").val();
+            var goodsName = $("#goodsName").val();
+            var supplier_id = $("input[name='supplier']:checked").val();
+            $.ajax({
+                type: 'POST',
+                url: '/Admin/StoreGoodsAdd',
+                data: {
+                    goodsId:goodsId,    //产品id
+                    goodsName:goodsName,//产品名
+                    stock:stock,        //库存
+                    money:money,         //价格
+                    supplier_id:supplier_id     //供应商
+                },
+                success: function(data){
+                    var data= eval('('+data+')');
+                    if (data.code == 1) {
+                        layer.msg(data.meg, function(){
+                            //关闭后的操作
+                        });
+                        setTimeout(function(){
+                            window.location.href='/Admin/StoreGoods';
+                        },1500);
+                    }else{
+                        layer.msg(data.meg, function(){
+                            //关闭后的操作
+                        });
+                        return false;
+                    }
+                },
+            });
+        });
+
+    })
+</script>
+{/block}

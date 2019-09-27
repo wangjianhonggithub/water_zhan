@@ -1,0 +1,63 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="/Admin/Branch_store/management?id={$id}">{$store_name}</a>>{$type == 2 ? '押桶' : '退桶'}记录</h3>
+    </div>
+    <div class="panel-body">
+        <table id="demo-dt-addrow" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>订单号</th>
+                <!-- <th>商品名称</th> -->
+                <th>下单用户</th>
+                <th class="min-tablet">订单状态</th>
+                <th class="min-tablet">桶数量</th>
+                <th class="min-tablet">订单总金额</th>
+                <th class="min-tablet">订单实际金额</th>
+                <th class="min-tablet">押/退桶</th>
+                <th class="min-tablet">下单时间</th>
+                <th class="min-tablet">支付时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="list" id="vo"}
+            <tr>
+                <td>{$vo.id}</td>
+                <!-- <td>{$vo.orderNo}</td> -->
+                <td>{$vo.orderNo}</td>
+                <td>{$vo.userName}</td>
+                <td>
+                    {if condition="$vo.orderStatus eq 1 "}
+                    待取桶
+                    {elseif condition="$vo.orderStatus eq 2 "/}
+                    取桶中
+                    {elseif condition="$vo.orderStatus eq 3 "/}
+                    已收桶
+                    {elseif condition="$vo.orderStatus eq 4 "/}
+                    已完成
+                    {elseif condition="$vo.orderStatus eq 5 "/}
+                    已取消
+                    {/if}
+                </td>
+                <td>{$vo.num}</td>
+                <td>{$vo.realTotalMoney}</td>
+                <td>{$vo.realTotalMoney}</td>
+                <td>{$vo.orderCate == 2 ? '押桶' : '退桶'}</td>
+                <td>{$vo.createTime|date="Y-m-d H:i:s",###}</td>
+                <td>{$vo.payTime|date="Y-m-d H:i:s",###}</td>
+            </tr>
+            {/volist}
+        </table>
+        <div>
+            <tr class="content">
+                <td colspan="3" bgcolor="#FFFFFF"><div class="pages">
+                    {$list->render()}
+                </div></td>
+            </tr>
+        </div>
+    </div>
+</div>
+
+{/block}

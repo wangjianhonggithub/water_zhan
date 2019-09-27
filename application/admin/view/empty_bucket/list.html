@@ -1,0 +1,49 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">店铺名称：{$user_name}</h3>
+    </div>
+
+    <div class="panel-body">
+        <table id="demo-dt-addrow" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <!-- <th>商品名称</th> -->
+                    <th>数量</th>
+                    {if condition="cookie('AdminUserId') eq 12"}
+                    <th class="min-desktop">操作</th>
+                    {/if}
+                </tr>
+            </thead>
+            <tbody>
+               {foreach name="list" item="vo"}
+                <tr>
+                    <td>{$vo.goods_name}</td>
+                    <td>{$vo.num}</td>
+                    <td>
+                        {if condition="$flag eq 'o'"}
+                        <a href="{:url('EmptyBucket/applyForBucket',array('id'=>$vo.id))}" class="btn btn-xs btn-rounded btn-mint">申请空桶</a>
+                        {/if}
+                        {if condition="$flag eq 'a'"}
+                            <a href="{:url('EmptyBucket/addBucket',array('user_id'=>$user_id,'name'=>$vo.goods_name))}" class="btn btn-xs btn-rounded btn-mint">分配空桶</a>
+                        {/if}
+                            <a href="{:url('EmptyBucket/assignBucketLogs',array('user_id'=>$user_id,'name'=>$vo.goods_name))}" class="btn btn-xs btn-rounded btn-mint">查询分配记录</a>
+                            <!-- <button type="button" class="btn btn-success">{$user_id==1?'申请中':'无申请'}</button> -->
+                    </td>
+                </tr>
+              {/foreach}
+        </table>
+        <div>
+             <tr class="content">
+                <td colspan="3" bgcolor="#FFFFFF"><div class="pages">
+                    {$list->render()}
+                </div></td>  
+            </tr>
+        </div>
+    </div> 
+</div>
+<script>
+</script>
+{/block}

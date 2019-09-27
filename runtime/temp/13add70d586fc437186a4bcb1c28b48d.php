@@ -1,0 +1,37 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:79:"E:\PHPTutorial\WWW\jjzs\jjzs\public/../application/index\view\merchants\my.html";i:1563256864;s:90:"E:\PHPTutorial\WWW\jjzs\jjzs\public/../application/index\view\songshuiyuan\updatePass.html";i:1563256878;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="/static/home/song/css/login.css">
+</head>
+<body>
+
+<form action="">
+    <img src="/static/home/song/images/logo.png" class="img-top">
+    <div>
+        <div class="con phone">
+            <input type="text" placeholder="请输入您的手机号">
+            <div class="inp1 msgs">获取验证码</div>
+        </div>
+        <div class="con">
+            <input type="password" placeholder="请输入验证码">
+        </div>
+        <div class="con">
+            <input type="password" placeholder="请输入您的密码">
+        </div>
+        <div class="con">
+            <input type="password" placeholder="请再次输入您的密码">
+        </div>
+        <div class="con btn">
+            <input type="submit" value="提交">
+        </div>
+    </div>
+</form>
+
+<script src="/static/home/song/js/jquery-3.2.1.min.js"></script>
+<script src="/static/home/song/js/index.js"></script>
+</body>
+</html>

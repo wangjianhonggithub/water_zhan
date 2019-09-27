@@ -1,0 +1,51 @@
+{extend name="Public:base" /}
+{block name="content"}
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">成本支出-日统计</h3>
+    </div>
+
+    <div id="demo-custom-toolbar2" class="table-toolbar-left" style="width:500px;margin-left: 25px">
+        <a href="/Admin/Statistics/expenditure?type=1" class="btn btn-xs btn-rounded btn-success">日统计</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/Admin/Statistics/expenditure?type=2" class="btn btn-xs btn-rounded btn-success">月统计</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/Admin/Statistics/expenditure?type=3" class="btn btn-xs btn-rounded btn-success">年统计</a>
+
+    </div>
+
+
+    <div class="panel-body">
+        <table id="demo-dt-addrow" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th style="text-align: center">房租</th>
+                <th style="text-align: center">配送员工资</th>
+                <th style="text-align: center">商品成本</th>
+                <th style="text-align: center">店长工资</th>
+                <th style="text-align: center">杂项</th>
+                <th style="text-align: center">日期</th>
+            </tr>
+            </thead>
+            <tbody>
+            {volist name="list" id="vo"}
+            <tr>
+                <td style="text-align: center">{$vo.rent_cost}</td>
+                <td style="text-align: center">{$vo.song_salary}</td>
+                <td style="text-align: center">{$vo.commodity_cost}</td>
+                <td style="text-align: center">{$vo.admin_salary}</td>
+                <td style="text-align: center">{$vo.electricity_fees+$vo.charge_for_water}</td>
+                <td style="text-align: center">{$vo.statistical_time|date="Y-m-d",###}</td>
+
+            </tr>
+            {/volist}
+        </table>
+        <div>
+            <tr class="content">
+                <td colspan="3" bgcolor="#FFFFFF"><div class="pages">
+                    {$list->render()}
+                </div></td>
+            </tr>
+        </div>
+    </div>
+</div>
+
+{/block}
